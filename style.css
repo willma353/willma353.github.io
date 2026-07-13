@@ -383,3 +383,44 @@ table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
 }
+
+/* ---- Mobile: stack the side menu on top of the content ---- */
+@media (max-width: 768px) {
+	/* Break the outer layout table into stacked full-width blocks */
+	#tlayout, #tlayout > tbody, #tlayout > tbody > tr { display: block; }
+	#layout-menu, #layout-content { display: block; width: auto; }
+
+	/* Menu becomes a horizontal, wrapping bar across the top */
+	#layout-menu {
+		white-space: normal;
+		padding: 0.4em 12px;
+		border-bottom: 1px solid #ccc;
+	}
+	#layout-menu ul.menu-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25em 1.1em;
+	}
+	#layout-menu li.menu-item {
+		padding-left: 0;
+		text-indent: 0;
+	}
+	#layout-menu a {
+		margin-left: 0;
+		line-height: 2;
+	}
+
+	#layout-content {
+		padding: 0.6em 12px 0;
+	}
+
+	/* Prevent horizontal overflow; let images scale down */
+	img { max-width: 100%; height: auto; }
+
+	/* Header name/photo table: stack the photo below the text */
+	table.imgtable, table.imgtable > tbody,
+	table.imgtable > tbody > tr, table.imgtable > tbody > tr > td {
+		display: block;
+		width: auto;
+	}
+}
